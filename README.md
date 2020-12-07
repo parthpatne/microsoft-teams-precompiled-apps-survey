@@ -4,17 +4,17 @@
 
 To begin, you will need:
 * A Microsoft 365 subscription
-* A team with the users who will be sending Polls using this app. (You can add and remove team members later!)  
-* A copy of the Poll app GitHub repo (ToDo: Add path here)  
+* A team with the users who will be sending Surveys using this app. (You can add and remove team members later!)  
+* A copy of the Survey app GitHub repo (ToDo: Add path here)  
 
 
-# Step 1: Create your Poll app
+# Step 1: Create your Survey app
 
-To create the Teams Poll app package:
+To create the Teams Survey app package:
 1. Make sure you have cloned the app repository locally. Navigate to PreCompiledApp folder.
 1. Open the actionManifest.json file in a text editor.
 1. Change the placeholder fields in the manifest to values appropriate for your organization. 
-    * packageID - A unique identifier for this app in reverse domain notation. E.g: com.contoso.pollapp. (Max length: 64) 
+    * packageID - A unique identifier for this app in reverse domain notation. E.g: com.contoso.surveyapp. (Max length: 64) 
     * developer.[]()name ([What's this?](https://docs.microsoft.com/en-us/microsoftteams/platform/resources/schema/manifest-schema#developer))
     * developer.websiteUrl
     * developer.privacyUrl
@@ -62,8 +62,8 @@ Note: Make sure you do not change to file structure of the PreCompiledApp folder
     ### AccessToken (optional parameter)
     If this script fails to acquire the token due to MSAL PowerShell module installation or any other issues, then you can manually acquire the token and provide it as input to this script.
 
-1. An AAD custom app, Bot are programmatically created in your tenant to power the Poll message extension app in Teams.
-1. After successful execution of above command, a Poll Teams app zip file is generated at `<Home_Directory>\TeamsApp\TeamsManifest.zip`.
+1. An AAD custom app, Bot are programmatically created in your tenant to power the Survey message extension app in Teams.
+1. After successful execution of above command, a Survey Teams app zip file is generated at `<Home_Directory>\TeamsApp\TeamsManifest.zip`.
 
 <br/>
 
@@ -73,24 +73,24 @@ If your tenant has sideloading apps enabled, you can install your app by followi
 
 You can also upload it to your tenant's app catalog, so that it can be available for everyone in your tenant to install. See [here](https://docs.microsoft.com/en-us/microsoftteams/tenant-apps-catalog-teams).
 
-Upload the generated Poll Teams app zip file (the `TeamsManifest.zip` generated in above step) to your channel, chat, or tenant’s app catalog. 
+Upload the generated Survey Teams app zip file (the `TeamsManifest.zip` generated in above step) to your channel, chat, or tenant’s app catalog. 
 
 <br/>
 
-# Step 4: Update your Poll Teams app
+# Step 4: Update your Survey Teams app
 
-If you want to update the existing Poll Teams app with latest functionality -
+If you want to update the existing Survey Teams app with latest functionality -
 1. Make sure you have cloned the latest app repository locally.
 1. Open the `actionManifest.json` file in a text editor.
-    * Change the placeholder fields (`packageID`, `developer.name`, `developer.websiteUrl`, `developer.privacyUrl`, `developer.termsOfUseUrl`) in the manifest with existing values in your Poll Teams app. 
+    * Change the placeholder fields (`packageID`, `developer.name`, `developer.websiteUrl`, `developer.privacyUrl`, `developer.termsOfUseUrl`) in the manifest with existing values in your Survey Teams app. 
     * Update the `version` field in the manifest. Make sure latest version number is higher than previous version number.  
 1. Copy all content of PreCompiledApp folder and send it to zip. Name this zip as "ActionPackage.zip". 
-1. Run the following commands to update your Poll Teams app with the latest bits of code. When prompted, log in using your AAD account. 
+1. Run the following commands to update your Survey Teams app with the latest bits of code. When prompted, log in using your AAD account. 
     
     **```import-module "<AbsolutePathFor_ActionPackageScripts.psm1>"```** <br/><br/>
     Then run following command: <br/>
     **```Update-ActionPackage -PackageZipFilePath "<AbsolutePathFor_ActionPackage.zip_CreatedInLastStep>" [-TeamsAppDownloadDirectoryPath <AbsolutePathForTeamsAppDownloadDirectory>] [-LogLevel <LogLevel>] [-LogDirectoryPath <AbsolutePathForLogDirectory>] [-Endpoint <Endpoint>] [-AccessToken <AccessToken>]```**
-1. Your Poll app on Teams automatically gets updated to the latest version. 
+1. Your Survey app on Teams automatically gets updated to the latest version. 
 
 <br/><br/>
 
