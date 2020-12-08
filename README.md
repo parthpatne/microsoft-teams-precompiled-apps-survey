@@ -28,13 +28,13 @@ Note: Make sure you do not change to file structure of the PreCompiledApp folder
 # Step 2: Deploy app to your organisation
 
 1. Open a PowerShell console on your machine.
-1. Find PowerShell module named "ActionPackageScripts.psm1" present in this repo. Copy its absolute path to use in following command. 
+1. Find PowerShell module named "ActionPackageDeploy.psm1" present in this repo. Copy its absolute path to use in following command. 
 
     ```
-    import-module "<AbsolutePathFor_ActionPackageScripts.psm1>"
+    import-module "<AbsolutePathFor_ActionPackageDeploy.psm1>"
     ```
 
-    This command imports the Functions exported by ActionPackageScripts.psm1 module, so that you can use them from your PowerShell console in next step.
+    This command imports the Functions exported by ActionPackageDeploy.psm1 module, so that you can use them from your PowerShell console in next step.
 
 1. Run the below command to deploy the app package to your Microsoft 365 subscription. When prompted, log in to your AAD account.  
 
@@ -96,7 +96,7 @@ If you want to update the existing Survey Teams app with latest functionality -
 1. Run the following commands to update your Survey Teams app with the latest bits of code. When prompted, log in using your AAD account. 
     
     ```
-    import-module "<AbsolutePathFor_ActionPackageScripts.psm1>"
+    import-module "<AbsolutePathFor_ActionPackageDeploy.psm1>"
     ```    
     Then run following command: <br/>
     ```
