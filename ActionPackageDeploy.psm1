@@ -438,7 +438,7 @@ function DownloadTeamsApp {
         $TeamsAppDirectory = New-Item -Path $TeamsAppDownloadDirectoryPath -Force -ItemType Directory
     }
 
-    $ManifestPath = "$TeamsAppDownloadDirectoryPath\TeamsManifest.zip"
+    $ManifestPath = "$TeamsAppDownloadDirectoryPath\microsoft-teams-appzip-upload.zip"
 
     Invoke-RestMethod -Uri $TeamsAppDownloadUrl -Method "Get" -ContentType "application/zip" -OutFile $ManifestPath
     Exit-OnError -IsError $(!(Test-Path $ManifestPath -PathType leaf)) -OnErrorMessage "Failed to download Teams app!"
