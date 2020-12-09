@@ -265,9 +265,6 @@ function ValidateOrAcquireToken {
             Write-DebugLog "MSAL.PS module is not already installed"
             Write-InfoLog "Need to install MSAL.PS module for authentication purpose. Updating Nuget Package and PowerShellGet Module for the same"
 
-            # setting security protocol to Tls12, without this, module installation fails
-            [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-
             # ## Update Nuget Package and PowerShellGet Module
             Install-PackageProvider NuGet -Force -Scope CurrentUser
             Install-Module PowerShellGet -Force -Scope CurrentUser -AllowClobber
@@ -563,6 +560,9 @@ function Update-ActionPackage {
 
     UploadPackage -PackageZipFilePath $PackageZipFilePathParam
 }
+
+# setting security protocol to Tls12, without this, API calls fail
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
 Export-ModuleMember -Function New-ActionPackage, Update-ActionPackage
 
